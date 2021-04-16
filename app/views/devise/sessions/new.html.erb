@@ -1,40 +1,32 @@
 
   <%# <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> %>
-  <section class="form-auth">
-  
-  </section>
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
+<section class="form-auth text-center">
 
-  <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <%= f.input :email,
+                  placeholder: "Email address",
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+
+    <label for="inputPassword" class="sr-only">Password</label>
     <%= f.input :password,
+                placeholder: "Password",
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
-<% end %>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="form-actions btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+  <% end %>
 
-<!-- HE DELETED THIS PART
-<h2>Log in</h2>
 
-  <div class="form-inputs">
-    
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
--->
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</section>
