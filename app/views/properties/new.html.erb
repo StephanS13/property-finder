@@ -2,4 +2,18 @@
 
 <%= render 'form', property: @property %>
 
-<%= link_to 'Back', properties_path %>
+<div class="d-flex">
+  <%= link_to 'Show', properties_path %>
+  <style>
+  .vl {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-left: 1.2px solid grey;
+    height: 13px;
+  }
+  </style>
+  <div class="vl"></div>
+  <%= link_to 'Back', properties_path %>
+</div>
+
